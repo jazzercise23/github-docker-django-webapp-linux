@@ -37,3 +37,23 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+- stage: Deploy
+  displayName: Deploy to App Service
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure subscription 1(3909319b-0881-4003-a436-1a1a16b9b5f8)'
+        appType: 'webAppContainer'
+        WebAppName: 'mstut-msdocs-custom-container-tutorial'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'msdocs-custom-container-tutorial'
+        SlotName: 'production'
+        DockerNamespace: 'mycustomregname.azurecr.io'
+        DockerRepository: 'jazzercisegithubdockerdjangowebapplinux'
