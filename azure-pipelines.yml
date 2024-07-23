@@ -51,9 +51,11 @@ stages:
         ConnectionType: 'AzureRM'
         azureSubscription: 'Azure subscription 1(3909319b-0881-4003-a436-1a1a16b9b5f8)'
         appType: 'webAppContainer'
-        WebAppName: 'mstut-msdocs-custom-container-tutorial'
+        # WebAppName: 'mstut-msdocs-custom-container-tutorial'
+        WebAppName: 'rgcontainer2'
         deployToSlotOrASE: true
-        ResourceGroupName: 'msdocs-custom-container-tutorial'
+        # ResourceGroupName: 'msdocs-custom-container-tutorial'
+        ResourceGroupName: 'RGContainer2'
         SlotName: 'production'
         DockerNamespace: 'mycustomregname.azurecr.io'
         DockerRepository: 'jazzercisegithubdockerdjangowebapplinux'
